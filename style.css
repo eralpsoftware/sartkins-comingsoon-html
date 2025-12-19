@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #3B0A14;
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 20px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Ekstra doku efekti için */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0,0,0,0.03) 2px,
+            rgba(0,0,0,0.03) 4px
+        );
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.content {
+    text-align: center;
+    padding: 2rem;
+    max-width: 90%;
+}
+
+.logo {
+    max-width: clamp(300px, 50vw, 400px);
+    width: 100%;
+    height: auto;
+    margin-bottom: 3rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitle {
+    margin-bottom: 4rem;
+}
+
+.subtitle-line {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 200;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.contact {
+    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    margin-top: 4rem;
+}
+
+.contact p {
+    line-height: 1.6;
+}
+
+.phone {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 2rem;
+        max-width: 80%;
+    }
+    
+    .subtitle {
+        margin-bottom: 3rem;
+    }
+    
+    .contact {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtitle-line {
+        font-size: 0.8rem;
+    }
+    
+    .contact {
+        font-size: 0.75rem;
+    }
+}
+
+/* Arapça (RTL) desteği */
+html[dir="rtl"] body {
+    direction: rtl;
+}
+
+html[dir="rtl"] .subtitle-line {
+    letter-spacing: 0.05em; /* Arapça için letter-spacing azaltıldı */
+}
+
+html[dir="rtl"] .contact {
+    letter-spacing: 0.05em;
+}
+
+/* Dil değiştirme butonları */
+.language-switcher {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+}
+
+.lang-btn {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.lang-btn.active {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.lang-separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 200;
+}
+
+/* Arapça için dil değiştirme butonları - Her zaman LTR sıralama */
+html[dir="rtl"] .language-switcher {
+    direction: ltr;
+}
+
+
+
+
+
+.lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between; /* Distribute lines evenly */
+  }
+  
+  .line {
+    position: relative;
+    width: 1px;
+    height: 100%;
+    /*background: #ffffff;  /* Line color */
+    overflow: hidden;
+  }
+  
+  .line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 7s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+  
+  /* Sanat temasına uygun renkler - Klasik sanat paleti */
+  .line:nth-child(1)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #C94A3F 75%, #C94A3F 100%); /* Kadmiyum Kırmızı */
+    animation-delay: 0.5s;
+  }
+  
+  .line:nth-child(2)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #40826D 75%, #40826D 100%); /* Viridian Yeşil */
+    animation-delay: 1s;
+  }
+  
+  .line:nth-child(3)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #3B5BDB 75%, #3B5BDB 100%); /* Ultramarin Mavi */
+    animation-delay: 1.5s;
+  }
+  
+  .line:nth-child(4)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #E6A500 75%, #E6A500 100%); /* Kadmiyum Sarı */
+    animation-delay: 2s;
+  }
+  
+  .line:nth-child(5)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #6B4C93 75%, #6B4C93 100%); /* Dioxazine Mor */
+    animation-delay: 2.5s;
+  }
+  
+  .line:nth-child(6)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #1E3A5F 75%, #1E3A5F 100%); /* Prusya Mavi */
+    animation-delay: 3s;
+  }
+  
+  .line:nth-child(7)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #C91A2A 75%, #C91A2A 100%); /* Alizarin Kırmızı */
+    animation-delay: 3.5s;
+  }
+  
+  .line:nth-child(8)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #A0522D 75%, #A0522D 100%); /* Burnt Sienna */
+    animation-delay: 4s;
+  }
+  
+  .line:nth-child(9)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #D4A574 75%, #D4A574 100%); /* Raw Sienna */
+    animation-delay: 4.5s;
+  }
+  
+  .line:nth-child(10)::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #E8E8E8 75%, #E8E8E8 100%); /* Titanium White */
+    animation-delay: 5s;
+  }
+  
+  @keyframes drop {
+    0% {
+      top: -50%;
+    }
+    100% {
+      top: 110%;
+    }
+  }
+
+  /* Fade-in animasyonu */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
