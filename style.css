@@ -92,6 +92,13 @@ body::before {
 .phone {
     font-weight: 400;
     letter-spacing: 0.05em;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.phone:hover {
+    opacity: 0.8;
 }
 
 /* Responsive tasarım */
