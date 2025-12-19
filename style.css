@@ -197,7 +197,6 @@ html[dir="rtl"] .language-switcher {
     height: 100%;
     margin: auto;
     width: 90vw;
-    display: flex;
     justify-content: space-between; /* Distribute lines evenly */
   }
   
